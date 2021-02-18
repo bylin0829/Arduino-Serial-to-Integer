@@ -36,7 +36,7 @@ void loop() {
   }
 }
 
-long toDec() {
+long func() {
 
   String data = Serial.readStringUntil(terminator);
   bool flag = true;
