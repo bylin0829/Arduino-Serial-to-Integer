@@ -37,11 +37,10 @@ void loop() {
 }
 
 long func() {
-
   String data = Serial.readStringUntil(terminator);
-  bool flag = true;
   bool isHex = false;
   bool isNeg = false;
+  
   // init
   data.toUpperCase();
   if (data[0] == '0' && data[1] == 'X') {
@@ -74,7 +73,7 @@ long func() {
   //Data process
   long result = 0;
   if (isHex) {
-    //Hex process
+    //Hex
     for (int i = 0; i < data.length(); i++) {
       if (data[i] >= '0' && data[i] <= '9')
         result += (data[i] - '0') * power(16, data.length() - 1 - i);
@@ -84,7 +83,7 @@ long func() {
     return result;
   }
   else {
-    //Dec process
+    //Dec
     for (int i = 0; i < data.length(); i++) {
       result += (data[i] - '0') * power(10, data.length() - 1 - i);
     }
